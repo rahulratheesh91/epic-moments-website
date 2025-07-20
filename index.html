@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Moments - Where Celebrations Become Stories | Professional Event Management</title>
+    <meta name="description" content="Professional event management services specialising in weddings, corporate events, private parties and bespoke celebrations. Based in Kettering, Northamptonshire, serving the UK.">
+    <meta name="keywords" content="event management, wedding planning, corporate events, private parties, Kettering, Northamptonshire, UK">
+    <meta name="author" content="Epic Moments">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#d4af37">
+    
+    <!-- Security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Epic Moments - Where Celebrations Become Stories">
+    <meta property="og:description" content="Professional event management services creating unforgettable moments across the UK.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.epicmoments.co.uk">
+    <meta property="og:image" content="https://www.epicmoments.co.uk/og-image.jpg">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Epic Moments - Where Celebrations Become Stories">
+    <meta name="twitter:description" content="Professional event management services creating unforgettable moments across the UK.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Epic-Moments-Logo.png">
+    <link rel="apple-touch-icon" href="Epic-Moments-Logo.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Enhanced Visual Arrangements */
+        .services-grid-centered {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 2rem !important;
+            max-width: 900px !important;
+            margin: 0 auto !important;
+            justify-items: center !important;
+        }
+
+        .event-types-grid-centered {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 2rem !important;
+            max-width: 1000px !important;
+            margin: 0 auto !important;
+        }
+
+        .event-type-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-type-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .event-type {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            flex: 0 1 240px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-type::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .event-type:hover::before {
+            opacity: 1;
+        }
+
+        .event-type h3 {
+            margin: 0.5rem 0 1rem 0;
+            font-size: 1.3rem;
+            color: #d4af37;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-type p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            flex-grow: 1;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-type:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(212, 175, 55, 0.2), 0 0 30px rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+
+        .event-type:hover .event-type-icon {
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            border: 1px solid #f0f0f0 !important;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2) !important;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid-centered {
+                grid-template-columns: 1fr !important;
+                max-width: 100% !important;
+            }
+            
+            .event-types-grid-centered {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .event-type {
+                flex: 1 1 100% !important;
+                max-width: 300px !important;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid-centered {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .event-type {
+                flex: 0 1 200px !important;
+            }
+        }
+
+        /* Enhanced Instagram Icon Styling */
+        .social-links {
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(240, 148, 51, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link i {
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(240, 148, 51, 0.4);
+        }
+
+        .social-link:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Logo Image Styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+        }
+
+        .logo-image:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-main {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a2332;
+            margin: 0;
+        }
+
+        .logo-tagline {
+            font-size: 0.85rem;
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+        }
+
+        /* Enhanced Header Styling */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            min-height: 70px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            --underline-position: 1rem;
+        }
+
+        .nav-menu::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: var(--underline-position, 1rem);
+            width: 20px;
+            height: 2px;
+            background: #d4af37;
+            border-radius: 1px;
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #1a2332;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-menu a.active::after {
+            display: none;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0.9);
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Mobile responsive logo adjustments */
+        @media (max-width: 768px) {
+            .logo {
+                gap: 0.6rem;
+            }
+            
+            .logo-image {
+                height: 35px;
+            }
+            
+            .logo-main {
+                font-size: 1.1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.65rem;
+                /* Fallback for browsers that don't support background-clip */
+                color: #4a5568;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .nav-menu a {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            nav {
+                padding: 0.8rem 0;
+                min-height: 60px;
+            }
+            
+            .footer-logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .footer-logo-image {
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+                gap: 0.3rem;
+                text-align: center;
+            }
+            
+            .logo-image {
+                height: 32px;
+            }
+            
+            .logo-main {
+                font-size: 1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.6rem;
+                /* Fallback for browsers that don't support background-clip */
+                color: #4a5568;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="Epic-Moments-Logo.png" alt="Epic Moments Logo" class="logo-image">
+                    <div class="logo-text">
+                        <span class="logo-main">Epic Moments</span>
+                        <span class="logo-tagline">Where celebrations become stories</span>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-subtitle">Don't stress...</div>
+            <h1>We've got this covered!</h1>
+            <p>Creating extraordinary celebrations that become cherished memories. From intimate gatherings to grand affairs, we handle every detail so you can enjoy every moment.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start Planning</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Do</h2>
+                <p>Creating unforgettable moments with precision, style, and attention to every detail. We handle everything so you can focus on what matters most.</p>
+            </div>
+            
+            <div class="services-intro">
+                <div class="services-quote">
+                    <h3>"A magical event begins long before the first guest arrives. It begins with inspired planning."</h3>
+                    <p>For us, it's all about the celebration. Whatever type of event you envision, that's the type of experience we'll create. Whether it's a corporate gathering, birthday celebration or special occasion, we'll attend to every detail, so that your dream event becomes a reality worth remembering.</p>
+                </div>
+            </div>
+
+            <div class="services-grid services-grid-centered">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Planning & Coordination</h3>
+                    <p>Complete event management from initial concept through to final execution, ensuring every detail is perfectly orchestrated.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design & Styling</h3>
+                    <p>Creative design services that transform your vision into reality with stunning décor, lighting, and atmospheric design.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Catering</h3>
+                    <p>Exceptional culinary experiences featuring fresh, locally sourced ingredients and presentation that delights every guest.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Audio & Lighting</h3>
+                    <p>Professional audio and lighting design to create the perfect ambiance and ensure your event runs smoothly with exceptional sound quality.</p>
+                </div>
+            </div>
+            
+            <div class="services-cta">
+                <p>We can help at every aspect of your event and do as much or as little as you like. From the design stage to clear-up, and everything in between.</p>
+                <a href="#contact" class="btn btn-primary">Plan Your Event</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Types Section -->
+    <section class="event-types">
+        <div class="container">
+            <div class="section-title">
+                <h2>Celebrations We Create</h2>
+                <p>From corporate gatherings to family milestones, we bring your special moments to life with creativity and care.</p>
+            </div>
+            <div class="event-types-grid event-types-grid-centered">
+                <div class="event-type">
+                    <div class="event-type-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Corporate Events</h3>
+                    <p>Professional conferences, team building, product launches, and corporate hospitality that elevates your business presence.</p>
+                </div>
+                <div class="event-type">
+                    <div class="event-type-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Birthday Parties</h3>
+                    <p>Memorable birthday celebrations for all ages, from milestone birthdays to themed parties that create lasting memories.</p>
+                </div>
+                <div class="event-type">
+                    <div class="event-type-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Holy Communion Events</h3>
+                    <p>Sacred and meaningful celebrations for First Holy Communion, creating respectful and joyous occasions for families and communities.</p>
+                </div>
+                <div class="event-type">
+                    <div class="event-type-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Gender Reveals & Baby Showers</h3>
+                    <p>Exciting gender reveal parties and beautiful baby shower celebrations to welcome new arrivals with style and joy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Creating Memories That Last Forever</h2>
+                    <p>Epic Moments is a team of passionate event professionals dedicated to bringing your vision to life. With years of experience in the events industry, we understand that every celebration is unique and deserves nothing less than perfection.</p>
+                    <p>Our approach combines creative flair with meticulous planning, ensuring that every event we create is not just successful, but truly unforgettable. We handle all the details so you can relax and enjoy your special moment.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <span>Award-Winning Service</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <span>Experienced Team</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Passionate About Excellence</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional event planning team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it - hear from the families and clients who trusted us with their most important celebrations.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>"Epic Moments made our daughter's First Holy Communion absolutely perfect. From the beautiful decorations to the thoughtful coordination, every detail was handled with such care and respect. It was truly a blessed and memorable day for our family."</p>
+                    <div class="testimonial-author">
+                        <strong>Ashley & Rajesh</strong>
+                        <span>Holy Communion Event, Kettering</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"Our daughter's butterfly-themed birthday party was absolutely magical! Epic Moments brought the theme to life with stunning butterfly decorations, beautiful colors, and every detail perfectly coordinated. She felt like a princess and all the children had the most wonderful time."</p>
+                    <div class="testimonial-author">
+                        <strong>Anish & Gincy</strong>
+                        <span>Butterfly Birthday Party, Kettering</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"Our son's first birthday party with the forest theme was magical thanks to Epic Moments! They created such a wonderful woodland celebration with beautiful forest decorations and perfect coordination. All our family and friends had an amazing time, and we have the most precious memories."</p>
+                    <div class="testimonial-author">
+                        <strong>Rahul & Anitta</strong>
+                        <span>Forest Theme 1st Birthday, Northampton</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Create Something Extraordinary</h2>
+                <p>Ready to start planning your next celebration? Get in touch with our team for a consultation and discover how we can bring your vision to life.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Based in Kettering</h4>
+                            <p>Kettering, Northamptonshire<br>Serving the UK</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+44 7351 733080</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@epicmoments.co.uk</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4>Follow Us</h4>
+                            <p><a href="https://www.instagram.com/epicmoments_crew" target="_blank">@epicmoments_crew</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Start Planning Your Event</h3>
+                    
+                    <!-- 🚀 FORMSPREE INTEGRATION FOR GITHUB PAGES -->
+                    <form action="https://formspree.io/f/meozelnd" method="POST">
+                        <!-- Form fields with validation -->
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="e.g. +44 7XXX XXXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="event-type">Event Type *</label>
+                                <select id="event-type" name="event-type" required>
+                                    <option value="">Select your event type...</option>
+                                    <option value="corporate">Corporate Event</option>
+                                    <option value="birthday">Birthday Party</option>
+                                    <option value="communion">Holy Communion Event</option>
+                                    <option value="baby">Gender Reveal/Baby Shower</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guest-count">Approximate Guest Count</label>
+                            <select id="guest-count" name="guest-count">
+                                <option value="">Select guest count...</option>
+                                <option value="under-50">Under 50 guests</option>
+                                <option value="50-100">50-100 guests</option>
+                                <option value="100-200">100-200 guests</option>
+                                <option value="200-500">200-500 guests</option>
+                                <option value="500+">500+ guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell us about your vision *</label>
+                            <textarea id="message" name="message" placeholder="Share your ideas, preferred dates, budget range, and any special requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Start Your Journey</button>
+                        
+                        <!-- Form submission note for free plan -->
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">
+                            <i class="fas fa-info-circle"></i> 
+                            After clicking "Start Your Journey", you'll receive a confirmation and we'll respond within 24 hours.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="Epic-Moments-Logo.png" alt="Epic Moments Logo" class="footer-logo-image">
+                        <div class="footer-logo-text">
+                            <span class="logo-main">Epic Moments</span>
+                            <span class="logo-tagline">Where celebrations become stories</span>
+                        </div>
+                    </div>
+                    <p>Creating extraordinary events across the UK. Professional, reliable, and passionate about delivering exceptional experiences that become cherished memories.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/epicmoments_crew" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <a href="#services">Planning & Coordination</a>
+                    <a href="#services">Design & Styling</a>
+                    <a href="#services">Catering</a>
+                    <a href="#services">Audio & Lighting</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Event Types</h3>
+                    <a href="#services">Corporate Events</a>
+                    <a href="#services">Birthday Parties</a>
+                    <a href="#services">Holy Communion Events</a>
+                    <a href="#services">Gender Reveals & Baby Showers</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kettering, Northamptonshire</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+44 7351 733080</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@epicmoments.co.uk</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Epic Moments. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Smooth navigation underline transition with scroll detection
+        document.addEventListener('DOMContentLoaded', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            const sections = document.querySelectorAll('section[id]');
+            
+            function updateUnderline() {
+                const activeLink = document.querySelector('.nav-menu a.active');
+                if (activeLink) {
+                    const linkRect = activeLink.getBoundingClientRect();
+                    const menuRect = navMenu.getBoundingClientRect();
+                    const position = linkRect.left - menuRect.left + (linkRect.width / 2) - 10;
+                    navMenu.style.setProperty('--underline-position', `${position}px`);
+                }
+            }
+            
+            function setActiveNavItem(targetId) {
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to the matching link
+                const targetLink = document.querySelector(`.nav-menu a[href="#${targetId}"]`);
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                    updateUnderline();
+                }
+            }
+            
+            function getActiveSection() {
+                const scrollPosition = window.scrollY + 100; // Offset for header
+                
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = sections[i];
+                    const sectionTop = section.offsetTop;
+                    
+                    if (scrollPosition >= sectionTop) {
+                        return section.id;
+                    }
+                }
+                
+                return 'home'; // Default to home if no section matches
+            }
+            
+            // Update active nav item based on scroll position
+            function updateActiveNavOnScroll() {
+                const activeSection = getActiveSection();
+                setActiveNavItem(activeSection);
+            }
+            
+            // Update underline position on page load
+            updateUnderline();
+            
+            // Set initial active nav item
+            updateActiveNavOnScroll();
+            
+            // Update active nav item on scroll
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveNavOnScroll, 10);
+            });
+            
+            // Update underline position when clicking nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        const targetId = href.substring(1);
+                        setActiveNavItem(targetId);
+                    }
+                });
+            });
+            
+            // Update underline position on window resize
+            window.addEventListener('resize', updateUnderline);
+        });
+    </script>
+</body>
+</html>
