@@ -96,6 +96,9 @@ function setupMobileMenu() {
     const navMenu = document.querySelector('.nav-menu');
     
     if (hamburger && navMenu) {
+// Ensure menu starts closed
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
         hamburger.addEventListener('click', function() {
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
