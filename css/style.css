@@ -873,7 +873,7 @@ footer {
     }
 
     .nav-menu {
-        display: none;
+        display: none !important;
         position: fixed;
         top: 80px;
         left: 0;
@@ -883,14 +883,18 @@ footer {
         padding: 2rem;
         box-shadow: var(--shadow-large);
         gap: 1rem;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
     }
 
     .nav-menu.active {
-        display: flex;
-    }
-
-    .logo-text {
-        display: none;
+        display: flex !important;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     .hero .hero-subtitle {
