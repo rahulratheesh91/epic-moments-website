@@ -12,8 +12,16 @@ function initializeWebsite() {
     setupForms();
     setupMobileMenu();
     setupHeroImageSlider();
+    updateCopyrightYear();
 }
-
+// update copyright year automatically
+function updateCopyrightYear(){
+    const currentYear = new date() .getFullYear();
+    const yearElement = document.getElementByID('current-year');
+    if(yearElement){
+        yearElement.textcontent = currentYear;
+    }
+}
 // Navigation functionality
 function setupNavigation() {
     const navbar = document.querySelector('header');
