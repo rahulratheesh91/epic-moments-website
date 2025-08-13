@@ -868,6 +868,152 @@
             // Update underline position on window resize
             window.addEventListener('resize', updateUnderline);
         });
+        
     </script>
+    <!-- Quote Bot Button -->
+<button id="openBot" class="btn">Get an Instant Quote</button>
+
+<!-- Chatbot Overlay -->
+<div id="chatOverlay">
+  <div id="chatContainer">
+    <div id="chatHeader">
+      <h2>Epic Moments Bot</h2>
+      <button id="closeBot">&times;</button>
+    </div>
+    <iframe src="quote-bot.html"></iframe>
+  </div>
+</div>
+
+<!-- CSS -->
+<style>
+/* Glowing pulse button */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 5px #d4af37; transform: scale(1); }
+  50% { box-shadow: 0 0 20px #d4af37, 0 0 30px #a67c00; transform: scale(1.05); }
+  100% { box-shadow: 0 0 5px #d4af37; transform: scale(1); }
+}
+.btn {
+  background: linear-gradient(135deg, #d4af37, #a67c00);
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  animation: glowPulse 2s infinite;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+.btn:hover { transform: scale(1.05); }
+
+/* Overlay */
+#chatOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+/* Chat Container */
+#chatContainer {
+  width: 100%;
+  max-width: 500px;
+  height: 80vh;
+  background: #111;
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(212,175,55,0.6);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: slideUp 0.5s forwards;
+}
+
+/* Header */
+#chatHeader {
+  padding: 15px;
+  background: linear-gradient(90deg,#d4af37,transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#chatHeader h2 {
+  margin: 0;
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+}
+#chatHeader button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* iframe */
+#chatContainer iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  border-radius: 0 0 18px 18px;
+}
+
+/* Slide animations */
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #chatContainer {
+    height: 90vh;
+    border-radius: 15px;
+  }
+  #chatHeader h2 { font-size: 1rem; }
+  #chatHeader button { font-size: 24px; }
+  .btn { padding: 10px 14px; bottom: 15px; right: 15px; }
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+const openBtn = document.getElementById('openBot');
+const closeBtn = document.getElementById('closeBot');
+const overlay = document.getElementById('chatOverlay');
+const chatContainer = document.getElementById('chatContainer');
+
+openBtn.addEventListener('click', () => {
+  overlay.style.display = 'grid';
+  chatContainer.style.animation = 'slideUp 0.5s forwards';
+});
+
+closeBtn.addEventListener('click', () => {
+  chatContainer.style.animation = 'slideDown 0.5s forwards';
+  setTimeout(() => { overlay.style.display = 'none'; }, 500);
+});
+
+/* Slide down animation */
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(`@keyframes slideDown {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(100%); opacity: 0; }
+}`, styleSheet.cssRules.length);
+</script>
+
 </body>
 </html>
+
