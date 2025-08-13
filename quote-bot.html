@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epic Moments — Luxury Quote Bot</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .bot-container {
+    background: #111;
+    border: 2px solid #d4af37;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    animation: fadeIn 1s ease-out;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .message {
+    margin: 10px 0;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  button {
+    background: linear-gradient(135deg, #d4af37, #a67c00);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  button:hover {
+    transform: scale(1.05);
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;} to {opacity: 1;}
+  }
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);}
+  }
+</style>
+</head>
+<body>
+<div class="bot-container">
+  <h1>Epic Moments Quote Bot</h1>
+  <div id="chat"></div>
+</div>
+<script>
+const EVENT_PRICES = { wedding: 1200, corporate: 800, birthday: 500, private: 350 };
+const EXTRA_PRICES = { classic: 200, premium: 700, elite: 1500 };
+const WEEKEND_SURCHARGE = 0.15;
+const TRAVEL_RATE = 0.5; // per mile beyond 20 miles
+const ORIGIN_POSTCODE = "NN15 4AR";
+let quote = { event: null, guests: 0, package: null, date: null, miles: 0 };
+let price = 0;
+const chat = document.getElementById('chat');
+
+function addMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'message';
+  div.innerHTML = text;
+  chat.appendChild(div);
+}
+
+function askEvent() {
+  addMessage("Welcome to <b>Epic Moments</b> — Crafting Unforgettable Experiences. What type of event are you planning?");
+  Object.keys(EVENT_PRICES).forEach(e => {
+    const btn = document.createElement('button');
+    btn.innerText = e.charAt(0).toUpperCase() + e.slice(1);
+    btn.onclick = () => { quote.event = e; price += EVENT_PRICES[e]; askGuests(); };
+    chat.appendChild(btn);
+  });
+}
+
+function askGuests() {
+  addMessage("How many guests will attend?");
+  const input = document.createElement('input');
+  input.type = 'number';
+  input.min = 1;
+  input.onchange = () => { quote.guests = parseInt(input.value); price += quote.guests * 12; askPackage(); };
+  chat.appendChild(input);
+}
+
+function askPackage() {
+  addMessage("Choose your package:");
+  Object.keys(EXTRA_PRICES).forEach(p => {
+    const btn = document.createElement('button');
+    btn.innerText = p.charAt(0).toUpperCase() + p.slice(1);
+    btn.onclick = () => { quote.package = p; price += EXTRA_PRICES[p]; askDate(); };
+    chat.appendChild(btn);
+  });
+}
+
+function askDate() {
+  addMessage("Select your event date:");
+  const input = document.createElement('input');
+  input.type = 'date';
+  input.onchange = () => { 
+    quote.date = new Date(input.value);
+    const day = quote.date.getDay();
+    if (day === 0 || day === 6) price += price * WEEKEND_SURCHARGE;
+    askMiles();
+  };
+  chat.appendChild(input);
+}
+
+function askMiles() {
+  addMessage("How many miles from Kettering NN15 4AR is the venue?");
+  const input = document.createElement('input');
+  input.type = 'number';
+  input.min = 0;
+  input.onchange = () => { 
+    quote.miles = parseFloat(input.value);
+    if (quote.miles > 20) price += (quote.miles - 20) * TRAVEL_RATE;
+    showSummary();
+  };
+  chat.appendChild(input);
+}
+
+function showSummary() {
+  addMessage(`<b>Your Quote:</b><br>
+    Event: ${quote.event}<br>
+    Guests: ${quote.guests}<br>
+    Package: ${quote.package}<br>
+    Date: ${quote.date.toDateString()}<br>
+    Distance: ${quote.miles} miles<br>
+    <b>Total Price: £${price.toFixed(2)}</b>`);
+}
+
+askEvent();
+</script>
+</body>
+</html>
