@@ -90,33 +90,33 @@
         </div>
     </section>
 
-<section id="contact" class="contact section-padding">
+    <section id="contact" class="contact section-padding">
         <div class="section-header reveal">
             <h2>Start Planning Your Event</h2>
             <p>Ready to create something extraordinary? Let us know your vision.</p>
         </div>
         <div class="contact-container reveal">
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-                <input type="text" name="name" placeholder="Full Name *" required>
-                <input type="email" name="email" placeholder="Email Address *" required>
-                <input type="tel" name="phone" placeholder="Phone Number">
+            <form id="whatsapp-form" class="contact-form">
+                <input type="text" id="wa-name" placeholder="Full Name *" required>
+                <input type="email" id="wa-email" placeholder="Email Address *" required>
+                <input type="tel" id="wa-phone" placeholder="Phone Number">
                 
-                <select name="event-type" required>
+                <select id="wa-event" required>
                     <option value="" disabled selected>Select your event type...</option>
                     <option value="Corporate Event">Corporate Event</option>
                     <option value="Birthday Party">Birthday Party</option>
-                    <option value="Holy Communion">Holy Communion Event</option>
-                    <option value="Baby Shower/Gender Reveal">Gender Reveal/Baby Shower</option>
+                    <option value="Holy Communion Event">Holy Communion Event</option>
+                    <option value="Gender Reveal/Baby Shower">Gender Reveal/Baby Shower</option>
                     <option value="Other">Other</option>
                 </select>
 
-                <textarea name="vision" placeholder="Tell us about your vision *" rows="5" required></textarea>
+                <textarea id="wa-vision" placeholder="Tell us about your vision *" rows="5" required></textarea>
                 
-                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Start Your Journey</button>
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send via WhatsApp</button>
             </form>
         </div>
     </section>
-    
+
     <footer class="footer">
         <h2>Epic Moments</h2>
         <p>Kettering, Northamptonshire | Serving the UK</p>
