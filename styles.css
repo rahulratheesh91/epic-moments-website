@@ -270,3 +270,50 @@ h1, h2, h3, h4, .logo {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Contact Section */
+.contact {
+    background-color: var(--bg-light);
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: white;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
+}
+
+.contact-form select {
+    appearance: none;
+    cursor: pointer;
+}
