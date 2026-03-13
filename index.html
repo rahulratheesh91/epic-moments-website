@@ -97,11 +97,11 @@
         </div>
         <div class="contact-container reveal">
             <form id="whatsapp-form" class="contact-form">
-                <input type="text" id="wa-name" placeholder="Full Name *" required>
-                <input type="email" id="wa-email" placeholder="Email Address *" required>
-                <input type="tel" id="wa-phone" placeholder="Phone Number">
+                <input type="text" id="wa-name" name="Full_Name" placeholder="Full Name *" required>
+                <input type="email" id="wa-email" name="Email" placeholder="Email Address *" required>
+                <input type="tel" id="wa-phone" name="Phone_Number" placeholder="Phone Number">
                 
-                <select id="wa-event" required>
+                <select id="wa-event" name="Event_Type" required>
                     <option value="" disabled selected>Select your event type...</option>
                     <option value="Corporate Event">Corporate Event</option>
                     <option value="Birthday Party">Birthday Party</option>
@@ -110,9 +110,9 @@
                     <option value="Other">Other</option>
                 </select>
 
-                <textarea id="wa-vision" placeholder="Tell us about your vision *" rows="5" required></textarea>
+                <textarea id="wa-vision" name="Event_Vision" placeholder="Tell us about your vision *" rows="5" required></textarea>
                 
-                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send via WhatsApp</button>
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Inquiry</button>
             </form>
         </div>
     </section>
