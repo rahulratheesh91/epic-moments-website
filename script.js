@@ -13,3 +13,27 @@ function reveal() {
 }
 window.addEventListener("scroll", reveal);
 reveal(); // Trigger on load
+
+// WhatsApp Form Submission
+document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevents the page from reloading
+    
+    // Grab the values from the form
+    const name = document.getElementById('wa-name').value;
+    const email = document.getElementById('wa-email').value;
+    const phone = document.getElementById('wa-phone').value;
+    const event = document.getElementById('wa-event').value;
+    const vision = document.getElementById('wa-vision').value;
+    
+    // Format the message for WhatsApp (%0A creates a line break)
+    const message = `*New Event Inquiry - Epic Moments*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Event Type:* ${event}%0A*Vision:* ${vision}`;
+    
+    // Your WhatsApp Business Number
+    const whatsappNumber = "447351733080";
+    
+    // Create the final WhatsApp API URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+    
+    // Open WhatsApp in a new tab/app
+    window.open(whatsappURL, '_blank');
+});
