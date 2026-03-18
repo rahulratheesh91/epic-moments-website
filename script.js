@@ -1,4 +1,4 @@
-// Scroll reveal animations
+// 1. Scroll Reveal Animations (Ensures a smooth, premium loading experience)
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -12,48 +12,43 @@ function reveal() {
     }
 }
 window.addEventListener("scroll", reveal);
-reveal(); // Trigger on load
+reveal(); // Trigger on initial load
 
-// Dual Form Submission: Formspree + WhatsApp
-document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevents the default page reload
-    
-    const form = e.target;
-    
-    // Grab the values for WhatsApp formatting
-    const name = document.getElementById('wa-name').value;
-    const email = document.getElementById('wa-email').value;
-    const phone = document.getElementById('wa-phone').value;
-    const event = document.getElementById('wa-event').value;
-    const vision = document.getElementById('wa-vision').value;
-    
-    // 1. Send data silently to Formspree
-    const formData = new FormData(form);
-    fetch('https://formspree.io/f/mqaleyql', {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).catch(error => console.error('Formspree Error:', error)); // Logs error quietly if Formspree fails
+// 2. Quick Contact Form Submission (Runs only if the short form exists on the page)
+const quickForm = document.getElementById('whatsapp-form');
 
-    // 2. Format the message for WhatsApp (%0A creates a line break)
-    const message = `*New Event Inquiry - Epic Moments*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Event Type:* ${event}%0A*Vision:* ${vision}`;
-    
-    // Your WhatsApp Business Number
-    const whatsappNumber = "447351733080";
-    
-    // Create the final WhatsApp API URL
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
-    
-    // Open WhatsApp in a new tab/app
-    window.open(whatsappURL, '_blank');
-    
-    // Reset the form so it's clean when they return to the website
-    form.reset();
-});
+if (quickForm) {
+    quickForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        const form = e.target;
+        
+        const name = document.getElementById('wa-name').value;
+        const email = document.getElementById('wa-email').value;
+        const phone = document.getElementById('wa-phone').value;
+        const event = document.getElementById('wa-event').value;
+        const vision = document.getElementById('wa-vision').value;
+        
+        // Send data silently to Formspree
+        const formData = new FormData(form);
+        fetch('https://formspree.io/f/mqaleyql', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).catch(error => console.error('Formspree Error:', error));
 
-// Detailed Booking Form Submission (booking.html)
+        // Format and open WhatsApp
+        const message = `*New Event Inquiry - Epic Moments*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Event Type:* ${event}%0A*Vision:* ${vision}`;
+        
+        const whatsappNumber = "447351733080";
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+        window.open(whatsappURL, '_blank');
+        
+        form.reset();
+    });
+}
+
+// 3. Detailed Booking Form Submission (Runs only on booking.html)
 const detailedForm = document.getElementById('detailed-booking-form');
 
 if (detailedForm) {
@@ -62,7 +57,7 @@ if (detailedForm) {
         
         const form = e.target;
         
-        // 1. Send data silently to Formspree
+        // Send data silently to Formspree
         const formData = new FormData(form);
         fetch('https://formspree.io/f/mqaleyql', {
             method: 'POST',
@@ -70,7 +65,7 @@ if (detailedForm) {
             headers: { 'Accept': 'application/json' }
         }).catch(error => console.error('Formspree Error:', error));
 
-        // 2. Gather values for WhatsApp Formatting
+        // Gather values for WhatsApp Formatting
         const name = document.getElementById('df-name').value;
         const phone = document.getElementById('df-phone').value;
         const date = document.getElementById('df-date').value;
@@ -86,10 +81,10 @@ if (detailedForm) {
         });
         const decorString = decorItems.length > 0 ? decorItems.join(', ') : "None selected";
 
-        // 3. Format the WhatsApp Message
+        // Format the WhatsApp Message
         const message = `*Detailed Event Enquiry*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Date:* ${date}%0A*Venue:* ${venue}%0A%0A*Service:* ${service}%0A*Decor Needed:* ${decorString}%0A*Notes:* ${notes}`;
         
-        // 4. Open WhatsApp
+        // Open WhatsApp
         const whatsappNumber = "447351733080";
         const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
         window.open(whatsappURL, '_blank');
