@@ -1,4 +1,4 @@
-// Scroll Reveal Animations
+// 1. Scroll Reveal Animations
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -11,11 +11,26 @@ function reveal() {
         }
     }
 }
-
 window.addEventListener("scroll", reveal);
 reveal(); // Trigger on initial load
 
-// Detailed Booking Form Background Submission with Success Pop-up
+// 2. FAQ Accordion Logic
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+    const button = item.querySelector('.faq-question');
+    button.addEventListener('click', () => {
+        // Close all other open items for a clean look
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+        // Toggle the clicked item
+        item.classList.toggle('active');
+    });
+});
+
+// 3. Detailed Booking Form Background Submission with Success Pop-up
 const detailedForm = document.getElementById('detailed-booking-form');
 
 if (detailedForm) {
@@ -39,16 +54,15 @@ if (detailedForm) {
             }
         }).then(response => {
             if (response.ok) {
-                // 1. Success pop-up message
+                // Success pop-up message
                 alert("Proposal Requested Successfully! We look forward to designing your epic moment.");
                 
-                // 2. Clear the form 
+                // Clear the form 
                 form.reset(); 
                 
-                // 3. Redirect back to the home page
+                // Redirect back to the home page
                 window.location.href = "index.html"; 
             } else {
-                // If Formspree has an issue
                 alert("Oops! There was a problem submitting your form. Please try again or contact us on WhatsApp.");
                 submitButton.innerHTML = originalText;
             }
