@@ -12,7 +12,7 @@
     <style>
         .detailed-form-page {
             background-color: var(--bg-light);
-            padding: 120px 20px 60px; /* Space for navbar */
+            padding: 120px 20px 60px; 
         }
         
         .form-wrapper {
@@ -65,7 +65,6 @@
             grid-column: 1 / -1;
         }
 
-        /* Reusing the input styles from our contact form */
         .form-wrapper input,
         .form-wrapper select,
         .form-wrapper textarea {
@@ -88,7 +87,6 @@
             box-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
         }
 
-        /* Checkbox Grid Styling */
         .checkbox-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -118,32 +116,30 @@
         }
 
         @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .form-wrapper {
-                padding: 30px 20px;
-            }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-wrapper { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Epic Moments</div>
+        <a href="index.html" class="logo" style="text-decoration: none;">Epic Moments</a>
         <div class="nav-links">
             <a href="index.html#services">Services</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#about">About</a>
             <a href="index.html#reviews">Reviews</a>
             <a href="https://instagram.com/epicmoments_crew" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="index.html" class="btn-nav">Back to Home</a>
-            <a href="index.html" class="logo" style="text-decoration: none;">Epic Moments</a>
-        <div class="nav-links">
-            <a href="index.html#services">Services</a>
         </div>
     </nav>
 
     <a href="https://wa.me/447351733080" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="index.html" class="floating-home" aria-label="Return to Home">
+        <i class="fas fa-arrow-left"></i> Home
     </a>
 
     <div class="detailed-form-page">
@@ -153,26 +149,28 @@
                 <p>Provide the details below, and our team will review your requirements to create a custom estimate.</p>
             </div>
 
-            <form id="detailed-booking-form">
+            <form action="https://formspree.io/f/mqaleyql" method="POST" id="detailed-booking-form">
                 
+                <input type="hidden" name="_next" value="https://www.epicmoments.co.uk/">
+
                 <div class="form-section">
                     <div class="section-title">Client Details</div>
                     <div class="form-grid">
                         <div>
                             <label>Full Name *</label>
-                            <input type="text" id="df-name" name="Client_Name" required placeholder="Enter your full name">
+                            <input type="text" name="Client_Name" required placeholder="Enter your full name">
                         </div>
                         <div>
                             <label>Email Address *</label>
-                            <input type="email" id="df-email" name="Client_Email" required placeholder="For estimate delivery">
+                            <input type="email" name="Client_Email" required placeholder="For estimate delivery">
                         </div>
                         <div>
                             <label>Phone Number *</label>
-                            <input type="tel" id="df-phone" name="Client_Phone" required placeholder="Best contact number">
+                            <input type="tel" name="Client_Phone" required placeholder="Best contact number">
                         </div>
                         <div>
                             <label>Home Address</label>
-                            <input type="text" id="df-address" name="Client_Address" placeholder="Street, City, Postcode">
+                            <input type="text" name="Client_Address" placeholder="Street, City, Postcode">
                         </div>
                     </div>
                 </div>
@@ -182,19 +180,19 @@
                     <div class="form-grid">
                         <div>
                             <label>Event Date *</label>
-                            <input type="date" id="df-date" name="Event_Date" required>
+                            <input type="date" name="Event_Date" required>
                         </div>
                         <div>
                             <label>Venue Name & Location *</label>
-                            <input type="text" id="df-venue" name="Event_Venue" required placeholder="e.g. Kettering Park Hotel">
+                            <input type="text" name="Event_Venue" required placeholder="e.g. Kettering Park Hotel">
                         </div>
                         <div>
                             <label>Setup Access Time</label>
-                            <input type="time" id="df-setup-time" name="Setup_Time">
+                            <input type="time" name="Setup_Time">
                         </div>
                         <div>
                             <label>Event End Time</label>
-                            <input type="time" id="df-end-time" name="End_Time">
+                            <input type="time" name="End_Time">
                         </div>
                     </div>
                 </div>
@@ -204,15 +202,15 @@
                     <div class="form-grid">
                         <div>
                             <label>Number of Chairs (Covers/Sashes)</label>
-                            <input type="number" id="df-chairs" name="Chair_Quantity" placeholder="0" min="0">
+                            <input type="number" name="Chair_Quantity" placeholder="0" min="0">
                         </div>
                         <div>
                             <label>Number of Tables (Centerpieces)</label>
-                            <input type="number" id="df-tables" name="Table_Quantity" placeholder="0" min="0">
+                            <input type="number" name="Table_Quantity" placeholder="0" min="0">
                         </div>
                         <div class="full-width">
                             <label>Audio Equipment Required?</label>
-                            <select id="df-audio" name="Audio_Requirement">
+                            <select name="Audio_Requirement">
                                 <option value="No - Venue provides audio">No, venue provides audio</option>
                                 <option value="Yes - Need EpicMoments Audio Package">Yes, request EpicMoments Audio Package (Speakers/Mics)</option>
                             </select>
@@ -223,7 +221,7 @@
                 <div class="form-section">
                     <div class="section-title">Stage & Decor Selection</div>
                     <div class="checkbox-grid">
-                        <label class="checkbox-card"><input type="checkbox" name="Decor[]" value="Cylinder Plinths"> Cylinder Plinths </label>
+                        <label class="checkbox-card"><input type="checkbox" name="Decor[]" value="Cylinder Plinths"> Cylinder Plinths (5pc)</label>
                         <label class="checkbox-card"><input type="checkbox" name="Decor[]" value="Round Metal Arch"> Round Metal Arch</label>
                         <label class="checkbox-card"><input type="checkbox" name="Decor[]" value="Happy Birthday Neon"> Happy Birthday Neon</label>
                         <label class="checkbox-card"><input type="checkbox" name="Decor[]" value="Blessed Neon"> Blessed Neon</label>
@@ -243,7 +241,7 @@
                     <div class="form-grid">
                         <div class="full-width">
                             <label>Level of Service Needed</label>
-                            <select id="df-service" name="Service_Level">
+                            <select name="Service_Level">
                                 <option value="Decoration Only">Decoration Only</option>
                                 <option value="Catering & Decoration">Catering & Decoration</option>
                                 <option value="Full Event Management">Full Event Management</option>
@@ -251,7 +249,7 @@
                         </div>
                         <div class="full-width">
                             <label>Estimated Total Budget Range</label>
-                            <select id="df-budget" name="Budget_Range">
+                            <select name="Budget_Range">
                                 <option value="Under £500">Under £500</option>
                                 <option value="£500 - £1,500">£500 - £1,500</option>
                                 <option value="£1,500 - £3,000">£1,500 - £3,000</option>
@@ -260,14 +258,14 @@
                         </div>
                         <div class="full-width">
                             <label>Additional Notes or Specific Theme Requirements</label>
-                            <textarea id="df-notes" name="Additional_Notes" rows="4" placeholder="Mention color themes, dietary needs for catering, or specific venue constraints..."></textarea>
+                            <textarea name="Additional_Notes" rows="4" placeholder="Mention color themes, dietary needs for catering, or specific venue constraints..."></textarea>
                         </div>
                     </div>
                 </div>
 
                 <div style="text-align: center; margin-top: 20px;">
-                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Submit Detailed Enquiry via WhatsApp</button>
-                    <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">Your details will be sent directly to our team via Formspree and WhatsApp.</p>
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Request Your Custom Proposal</button>
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">Our team will review your details and be in touch within 24 hours.</p>
                 </div>
             </form>
         </div>
@@ -281,6 +279,5 @@
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
