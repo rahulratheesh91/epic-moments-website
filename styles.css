@@ -8,11 +8,28 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Montserrat', sans-serif; color: var(--text-color); background-color: var(--bg-light); line-height: 1.6; }
-h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; color: var(--primary-color); }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary-color); }
+
+/* Logo & Navigation Icon Styling */
+.logo { 
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 1.8rem; 
+    font-weight: 600; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
+
+.nav-logo-icon {
+    height: 1.3em; /* Scaled precisely to match the height of the font's capital letters */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
 
 /* Navbar */
 .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(255, 255, 255, 0.98); position: fixed; width: 100%; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-.logo { font-size: 1.8rem; font-weight: 600; }
 .nav-links a { text-decoration: none; color: var(--primary-color); margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
 .nav-links a:hover { color: var(--accent-color); }
 .btn-nav { border: 1px solid var(--primary-color); padding: 0.5rem 1.5rem; border-radius: 30px; color: var(--primary-color) !important; text-decoration: none; transition: all 0.3s ease; }
