@@ -18,16 +18,18 @@ reveal(); // Trigger on initial load
 const faqItems = document.querySelectorAll('.faq-item');
 faqItems.forEach(item => {
     const button = item.querySelector('.faq-question');
-    button.addEventListener('click', () => {
-        // Close all other open items for a clean look
-        faqItems.forEach(otherItem => {
-            if (otherItem !== item) {
-                otherItem.classList.remove('active');
-            }
+    if(button) {
+        button.addEventListener('click', () => {
+            // Close all other open items for a clean look
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            // Toggle the clicked item
+            item.classList.toggle('active');
         });
-        // Toggle the clicked item
-        item.classList.toggle('active');
-    });
+    }
 });
 
 // 3. Detailed Booking Form Background Submission with Success Pop-up
@@ -94,3 +96,76 @@ policyButtons.forEach(button => {
         }
     });
 });
+
+// 5. Live Review Submission Magic
+const openReviewBtn = document.getElementById('open-review-btn');
+const reviewFormWrapper = document.getElementById('review-form-wrapper');
+const liveReviewForm = document.getElementById('live-review-form');
+const reviewContainer = document.querySelector('.review-container');
+
+if (openReviewBtn && reviewFormWrapper && liveReviewForm) {
+    
+    // Toggle form visibility
+    openReviewBtn.addEventListener('click', () => {
+        if (reviewFormWrapper.style.display === 'none') {
+            reviewFormWrapper.style.display = 'block';
+            openReviewBtn.innerHTML = 'Cancel Review';
+        } else {
+            reviewFormWrapper.style.display = 'none';
+            openReviewBtn.innerHTML = 'Write a Review';
+        }
+    });
+
+    // Handle the submission
+    liveReviewForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop standard Formspree page load
+        
+        const name = document.getElementById('rev-name').value;
+        const location = document.getElementById('rev-location').value;
+        const text = document.getElementById('rev-text').value;
+        const submitBtn = liveReviewForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = "Posting...";
+
+        // Send data silently to Formspree
+        const formData = new FormData(liveReviewForm);
+        fetch(liveReviewForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                // 1. Instantly build the review card for the user to see
+                const newCard = document.createElement('div');
+                newCard.className = 'review-card';
+                newCard.innerHTML = `
+                    <i class="fas fa-quote-left"></i>
+                    <p>"${text}"</p>
+                    <h4>— ${name}</h4>
+                    <span>${location}</span>
+                `;
+                
+                // 2. Insert it at the very beginning of the slider
+                reviewContainer.insertBefore(newCard, reviewContainer.firstChild);
+                
+                // 3. Scroll the container back to the start so they see it
+                reviewContainer.scrollLeft = 0;
+                
+                // 4. Clean up and notify
+                alert("Thank you! Your review has been posted.");
+                liveReviewForm.reset();
+                reviewFormWrapper.style.display = 'none';
+                openReviewBtn.innerHTML = 'Write a Review';
+                submitBtn.innerHTML = originalBtnText;
+
+            } else {
+                alert("Oops! There was a problem sending your review. Please try again.");
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }).catch(error => {
+            alert("Network error. Please check your connection and try again.");
+            submitBtn.innerHTML = originalBtnText;
+        });
+    });
+}
