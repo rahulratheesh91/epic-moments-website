@@ -72,3 +72,25 @@ if (detailedForm) {
         });
     });
 }
+
+// 4. Policy Page "Read More" Accordion Logic
+const policyButtons = document.querySelectorAll('.read-more-btn');
+
+policyButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Toggle the active class on the button (for the rotating arrow)
+        this.classList.toggle('active');
+        
+        // Find the full text div right next to the summary container
+        const fullText = this.parentElement.nextElementSibling;
+        
+        // Toggle the expanded class to slide it open
+        if (fullText.classList.contains('expanded')) {
+            fullText.classList.remove('expanded');
+            this.innerHTML = `Read Full Policy <i class="fas fa-chevron-down"></i>`;
+        } else {
+            fullText.classList.add('expanded');
+            this.innerHTML = `Hide Full Policy <i class="fas fa-chevron-up"></i>`;
+        }
+    });
+});
