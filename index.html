@@ -36,7 +36,6 @@
     </a>
 
     <header class="hero">
-        <!-- The 'poster' image prevents the black screen and maintains your luxury aesthetic while the local video loads -->
         <video autoplay loop muted playsinline class="hero-video" poster="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=80">
             <source src="hero-video.mp4" type="video/mp4">
         </video>
@@ -175,6 +174,22 @@
                 <h4>— Rahul & Anitta</h4>
                 <span>Northampton</span>
             </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;" class="reveal">
+            <button id="open-review-btn" class="btn-nav" style="cursor: pointer; background: transparent;">Write a Review</button>
+        </div>
+
+        <div id="review-form-wrapper" style="display: none; max-width: 600px; margin: 30px auto 0; text-align: left; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--primary-color); margin-bottom: 20px; font-size: 1.5rem;">Share Your Experience</h3>
+            <form id="live-review-form" action="https://formspree.io/f/mqaleyql" method="POST">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <input type="text" id="rev-name" name="Reviewer_Name" placeholder="Your Name" required style="width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+                    <input type="text" id="rev-location" name="Reviewer_Location" placeholder="Location (e.g., Kettering)" required style="width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+                </div>
+                <textarea id="rev-text" name="Review_Text" placeholder="Tell us about your Epic Moment..." required rows="4" style="width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #e0e0e0; border-radius: 4px; font-family: 'Montserrat', sans-serif; resize: vertical;"></textarea>
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Post Review</button>
+            </form>
         </div>
     </section>
 
